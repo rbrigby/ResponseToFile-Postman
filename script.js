@@ -27,7 +27,7 @@ app.post('/write', (req, res) => {
     filePath = `${path.join(folderPath, filename)}.${extension}`,
     options = req.body.options || undefined;
 
-  fs[fsMode](filePath, req.body.responseData, options, (err) => {
+    fs[fsMode](filePath, Buffer.from(req.body.responseData), options, (err) => {
     if (err) {
       console.log(err);
       res.send('Error');
